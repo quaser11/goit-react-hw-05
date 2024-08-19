@@ -1,5 +1,6 @@
 import {Link, Nav, Header} from "./Navigation.styled.js";
 import {Outlet} from "react-router-dom";
+import {Suspense} from "react";
 
 const Navigation = () => {
     return <>
@@ -9,7 +10,9 @@ const Navigation = () => {
                 <Link to='movies'>Movies</Link>
             </Nav>
         </Header>
-        <Outlet />
+        <Suspense fallback={<div>Loading...</div>}>
+            <Outlet/>
+        </Suspense>
     </>
 }
 

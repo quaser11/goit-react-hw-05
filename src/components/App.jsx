@@ -1,5 +1,5 @@
 import {Routes, Route} from "react-router-dom";
-import {lazy, Suspense} from "react";
+import {lazy} from "react";
 
 function App() {
     const Navigation = lazy(() => import("./Navigation/Navigation.jsx"));
@@ -11,7 +11,6 @@ function App() {
     const Cast = lazy(() => import("./Cast/Cast.jsx"));
     return <>
 
-        <Suspense fallback={<div>Loading...</div>}>
             <Routes>
             <Route path='/' element={<Navigation/>}>
                 <Route index element={<HomePage/>}/>
@@ -23,7 +22,6 @@ function App() {
             </Route>
             <Route path='*' element={<NotFoundPage/>}/>
         </Routes>
-        </Suspense>
     </>
 }
 
