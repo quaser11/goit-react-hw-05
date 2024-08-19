@@ -1,4 +1,4 @@
-import {useState, useEffect, useRef} from 'react'
+import {useState, useEffect, useRef, Suspense} from 'react'
 import {Outlet, useParams, useLocation} from "react-router-dom";
 import {getMovieDetail, getImage} from "../../utils/api-service.js";
 import {Container, MovieDetail, Nav, Link} from './MovieDetailsPage.styled.js'
@@ -49,7 +49,9 @@ const MovieDetailsPage = () => {
                     </li>
                 </ul>
             </Nav>
-            <Outlet />
+            <Suspense fallback={<div>Loading...</div>}>
+                <Outlet/>
+            </Suspense>
         </>
     }
 }
