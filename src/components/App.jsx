@@ -1,8 +1,8 @@
 import {Routes, Route} from "react-router-dom";
 import {lazy} from "react";
+import Navigation from "./Navigation/Navigation.jsx"
 
 function App() {
-    const Navigation = lazy(() => import("./Navigation/Navigation.jsx"));
     const HomePage = lazy(() => import("../pages/HomePage/HomePage.jsx"));
     const MoviesPage = lazy(() => import("../pages/MoviesPage/MoviesPage.jsx"));
     const MovieDetailsPage = lazy(() => import("../pages/MovieDetailsPage/MovieDetailsPage.jsx"));

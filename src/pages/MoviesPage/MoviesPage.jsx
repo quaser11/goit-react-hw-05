@@ -1,6 +1,7 @@
-import {useSearchParams, Link, useLocation} from "react-router-dom";
+import {useSearchParams, useLocation} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {searchMovie} from "../../utils/api-service.js";
+import MovieList from "../../components/MovieList/MovieList.jsx";
 
 const MoviePage = () => {
     const [params, setParams] = useSearchParams();
@@ -36,11 +37,7 @@ const MoviePage = () => {
                 <button type='submit'>Search</button>
             </form>
             <ul>
-                {movies.map(movie => (
-                    <li key={movie.id}>
-                        <Link to={`${movie.id}`} state={{from: location}}>{movie.title}</Link>
-                    </li>
-                ))}
+                {movies && <MovieList movies={movies} location={location}/>}
             </ul>
         </>
     }

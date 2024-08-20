@@ -1,6 +1,7 @@
 import {getTrendingToday} from "../../utils/api-service.js";
 import {useEffect, useState} from "react";
-import {NavLink, useLocation} from "react-router-dom";
+import {useLocation} from "react-router-dom";
+import MovieList from "../../components/MovieList/MovieList.jsx";
 
 const HomePage = () => {
     const [trendingMovie, setTrendingMovie] = useState(null);
@@ -10,13 +11,7 @@ const HomePage = () => {
     }, []);
 
     return <>
-        <ul>
-            {trendingMovie && trendingMovie.map(movie => (
-                <li key={movie.id}>
-                    <NavLink to={`movies/${movie.id}`} state={{from: location}}>{movie.title}</NavLink>
-                </li>
-            ))}
-        </ul>
+        {trendingMovie && <MovieList movies={trendingMovie} location={location} />}
     </>
 }
 
