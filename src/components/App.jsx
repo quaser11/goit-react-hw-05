@@ -2,16 +2,16 @@ import {Routes, Route} from "react-router-dom";
 import {lazy} from "react";
 import Navigation from "./Navigation/Navigation.jsx"
 
-function App() {
-    const HomePage = lazy(() => import("../pages/HomePage/HomePage.jsx"));
-    const MoviesPage = lazy(() => import("../pages/MoviesPage/MoviesPage.jsx"));
-    const MovieDetailsPage = lazy(() => import("../pages/MovieDetailsPage/MovieDetailsPage.jsx"));
-    const NotFoundPage = lazy(() => import("../pages/NotFoundPage/NotFoundPage.jsx"));
-    const Reviews = lazy(() => import("./Reviews/Reviews.jsx"));
-    const Cast = lazy(() => import("./Cast/Cast.jsx"));
-    return <>
+const HomePage = lazy(() => import("../pages/HomePage/HomePage.jsx"));
+const MoviesPage = lazy(() => import("../pages/MoviesPage/MoviesPage.jsx"));
+const MovieDetailsPage = lazy(() => import("../pages/MovieDetailsPage/MovieDetailsPage.jsx"));
+const NotFoundPage = lazy(() => import("../pages/NotFoundPage/NotFoundPage.jsx"));
+const Reviews = lazy(() => import("./Reviews/Reviews.jsx"));
+const Cast = lazy(() => import("./Cast/Cast.jsx"));
 
-            <Routes>
+function App() {
+    return <>
+        <Routes>
             <Route path='/' element={<Navigation/>}>
                 <Route index element={<HomePage/>}/>
                 <Route path='movies' element={<MoviesPage/>}/>
